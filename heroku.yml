@@ -1,5 +1,5 @@
 build:
   docker:
-    api: Dockerfile
-    frontend: Dockerfile
-    db: Dockerfile
+    api: .api/Dockerfile
+    frontend: .frontend/Dockerfile
+    db: .db/Dockerfile
