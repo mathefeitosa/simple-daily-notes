@@ -30,7 +30,9 @@ class Login(Resource):
     # checking if password match
     if not bcrypt.checkpw(password.encode(), user_dict['password']):
       return jsonify({'message': 'Incorrect password!'})
-
+  
+  
+  
     # generating token
     from user.token import generate_token
     token = generate_token(user_id)

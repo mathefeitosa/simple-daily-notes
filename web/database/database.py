@@ -22,7 +22,7 @@ def generate_today_note(user_id):
     if notes.find_one({
         'date': today()
     }):
-        return jsonify()({'message': 'Today note already created.'})
+        return jsonify({'message': 'Today note already created.'})
     
     # insert the note
     notes.insert_one({
