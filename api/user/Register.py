@@ -1,8 +1,6 @@
 import bcrypt
-import jwt
 from flask import jsonify, request
 from flask_restful import Resource
-from config import SECRET_KEY
 
 from database.database import users
 

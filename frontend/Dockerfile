@@ -1,16 +1,22 @@
-# base image
-FROM node:12.2.0-alpine
+FROM node:lts-alpine
 
-# set working directory
+# instala um servidor http simples para servir conteúdo estático
+RUN npm install -g http-server
+
+# faz da pasta 'app' o diretório atual de trabalho
 WORKDIR /app
 
-# add `/app/node_modules/.bin` to $PATH
-ENV PATH /app/node_modules/.bin:$PATH
+# copia os arquivos 'package.json' e 'package-lock.json' (se disponível)
+COPY package*.json ./
 
-# install and cache app dependencies
-COPY package.json /app/package.json
+# instala dependências do projeto
 RUN npm install
-RUN npm install @vue/cli@3.7.0 -g
 
-# start app
-CMD ["npm", "run", "serve"]
+# copia arquivos e pastas para o diretório atual de trabalho (pasta 'app')
+COPY . .
+
+# compila a aplicação de produção com minificação
+RUN npm run build
+
+EXPOSE 8080
+CMD [ "http-server", "dist" ]

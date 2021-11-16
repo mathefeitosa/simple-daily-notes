@@ -52,3 +52,6 @@ docs/_build/
 # virtual environments
 /env
 /venv
+
+# node modules
+**/node_modules
