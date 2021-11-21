@@ -1,7 +1,6 @@
 from flask import jsonify, request
 from flask_restful import Resource
 from bson.objectid import ObjectId
-from bson.json_util import dumps, loads
 from database.database import users
 
 

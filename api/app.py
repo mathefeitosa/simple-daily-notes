@@ -1,17 +1,25 @@
 
 from notes.Notes import TodayNote, AllMyNotes, Note
 from flask import Flask
-from flask_restful import Api
+from flask_restful import Api, Resource
 from user.Register import Register
 from user.Login import Login
 from user.User import User
+
+
+
 
 # starting the flask app and running restful API module
 app = Flask(__name__)
 api = Api(app)
 
+# welcome page
+class Homepage(Resource):
+  def get(self):
+    return 'This API is running!', 200
 
 # routes
+api.add_resource(Homepage, '/')
 api.add_resource(Register, '/register')
 api.add_resource(Login, '/login')
 api.add_resource(User, '/user')
