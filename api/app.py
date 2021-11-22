@@ -5,12 +5,14 @@ from flask_restful import Api, Resource
 from user.Register import Register
 from user.Login import Login
 from user.User import User
-
+from flask_cors import CORS, cross_origin
 
 
 
 # starting the flask app and running restful API module
 app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 api = Api(app)
 
 # welcome page

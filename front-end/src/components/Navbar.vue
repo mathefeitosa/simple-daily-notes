@@ -1,5 +1,6 @@
 <template>
   <div>
+    <router-link to="/Login">Login</router-link> |
     <router-link to="/">Notes</router-link> |
     <router-link to="/about">About</router-link>
   </div>
