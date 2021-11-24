@@ -1,9 +1,0 @@
-__pycache__/
-
-.gitignore
-
-Pipfile
-
-Pipfile.lock
-
-README.MD
